@@ -17,14 +17,14 @@ def get_response(msg):
         EMAIL = EMAIL.lower()
 
         try:
-            collection = db["Groups"]
+            db_col = db["Groups"]
             data = {
                 "GROUP": GROUP,
                 "EMAIL": EMAIL
             }
-            collection.insert_one(data)
+            db_col.insert_one(data)
 
-            return 'REGISTERED >> GROUP:'+GROUP+'|EMAIL:'+EMAIL
+            return 'REGISTERED >> GROUP:'+GROUP+', EMAIL:'+EMAIL
 
         except:
             return 'Register Operation has FAILED.'
