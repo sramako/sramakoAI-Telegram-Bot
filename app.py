@@ -2,12 +2,19 @@ from flask import Flask, request
 import telegram
 from telebot.credentials import bot_token, bot_user_name,URL
 from telebot.mastermind import get_response
-
+import os
+import pymongo
+import urllib
 
 global bot
 global TOKEN
 TOKEN = bot_token
 bot = telegram.Bot(token=TOKEN)
+
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = urllib.parse.quote(os.environ.get('DB_PASSWORD'))
+db_client = pymongo.MongoClient('mongodb://' + DB_USER + ':' + DB_PASSWORD + '@ds060749.mlab.com:60749/sramako_qtest')
+db = db_client["sramako_qtest"]
 
 app = Flask(__name__)
 

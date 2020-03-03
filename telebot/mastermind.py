@@ -7,5 +7,18 @@ def get_response(msg):
         GROUP = GROUP.upper()
         EMAIL = msg[-1]
         EMAIL = EMAIL.lower()
-        return 'GROUP:'+GROUP+'|EMAIL:'+EMAIL
+
+        try:
+            collection = db["Groups"]
+            data = {
+                "GROUP": GROUP,
+                "EMAIL": EMAIL
+            }
+            collection.insert_one(data)
+
+            return 'REGISTERED >> GROUP:'+GROUP+'|EMAIL:'+EMAIL
+
+        except:pymongo.errors.PyMongoError as e:
+            return 'Register Operation has FAILED.'
+
     return "This message was not handled."
