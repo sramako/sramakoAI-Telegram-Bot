@@ -14,7 +14,7 @@ def get_response(msg):
                 "GROUP": GROUP,
                 "EMAIL": EMAIL
             }
-            collection.insert_one(data)
+            #collection.insert_one(data)
 
             return 'REGISTERED >> GROUP:'+GROUP+'|EMAIL:'+EMAIL
 
