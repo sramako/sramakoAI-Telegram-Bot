@@ -2,6 +2,7 @@ def get_response(msg):
     msg = msg.split()
     COMMAND = msg[0]
     COMMAND = COMMAND.lower()
+    
     if COMMAND == 'register':
         GROUP = ' '.join(msg[1:-1])
         GROUP = GROUP.upper()
