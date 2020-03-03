@@ -9,12 +9,12 @@ def get_response(msg):
         EMAIL = EMAIL.lower()
 
         try:
-            collection = db["Groups"]
-            data = {
-                "GROUP": GROUP,
-                "EMAIL": EMAIL
-            }
-            collection.insert_one(data)
+            # collection = db["Groups"]
+            # data = {
+            #     "GROUP": GROUP,
+            #     "EMAIL": EMAIL
+            # }
+            # collection.insert_one(data)
 
             return 'REGISTERED >> GROUP:'+GROUP+'|EMAIL:'+EMAIL
 
