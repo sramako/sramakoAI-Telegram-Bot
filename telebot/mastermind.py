@@ -1,3 +1,6 @@
+import os
+import pymongo
+
 def get_response(msg):
     msg = msg.split()
     COMMAND = msg[0]
