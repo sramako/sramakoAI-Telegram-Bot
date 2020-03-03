@@ -6,10 +6,14 @@ def get_response(msg):
     if COMMAND == 'register':
         # DB_USER = os.environ.get('DB_USER')
         # DB_PASSWORD = os.environ.get('DB_PASSWORD')
-        DB_USER = 'ako'
-        DB_PASSWORD = 'secret123'
-        db_client = pymongo.MongoClient('mongodb://' + DB_USER + ':' + DB_PASSWORD + '@ds060749.mlab.com:60749/sramako_qtest')
-        db = db_client["sramako_qtest"]
+
+        try:
+            DB_USER = 'ako'
+            DB_PASSWORD = 'secret123'
+            db_client = pymongo.MongoClient('mongodb://' + DB_USER + ':' + DB_PASSWORD + '@ds060749.mlab.com:60749/sramako_qtest')
+            db = db_client["sramako_qtest"]
+        except:
+            return "DB Access FAILED."
 
         GROUP = ' '.join(msg[1:-1])
         GROUP = GROUP.upper()
