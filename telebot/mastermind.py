@@ -14,11 +14,11 @@ def get_response(msg):
                 "GROUP": GROUP,
                 "EMAIL": EMAIL
             }
-            #collection.insert_one(data)
+            collection.insert_one(data)
 
             return 'REGISTERED >> GROUP:'+GROUP+'|EMAIL:'+EMAIL
 
-        except:pymongo.errors.PyMongoError as e:
+        except:
             return 'Register Operation has FAILED.'
 
     return "This message was not handled."
